@@ -1,65 +1,176 @@
 [1;31m
 Start test 1[0m
-.Input the tasks (enter a blank line to end):
-
-> Task #1
-
-> task 2 
-
-> task &3
-> Task   4
-
-> task  5
+$Input an action (add, print, end):
+> input
+The input action is invalid
+$Input an action (add, print, end):
+> task
+The input action is invalid
+$Input an action (add, print, end):
 > 
-1  Task #1
-2  task 2
-3  task &3
-4  Task   4
-5  task  5
+The input action is invalid
+$Input an action (add, print, end):
+> 123
+The input action is invalid
+$Input an action (add, print, end):
+>  
+The input action is invalid
+$Input an action (add, print, end):
+> end
+Tasklist exiting!
 [1;31m
 Start test 2[0m
-.Input the tasks (enter a blank line to end):
-> Change colors at site
-> Dentist on 15/1
-> Present for friend birthday
-#> Supermarket. Milk, eggs, butter.
-> Fix the printer.
-> Cinema: get tickets
-> Buy book
-> Check new software
-> Finish hyperskill project
-> Pay phone bill
-> Pay water bill
-> 
-1  Change colors at site
-2  Dentist on 15/1
- 3  Present for friend birthday
-%4  Supermarket. Milk, eggs, butter.
-5  Fix the printer.
-6  Cinema: get tickets
-7  Buy book
-8  Check new software
-9  Finish hyperskill project
-10 Pay phone bill
-11 Pay water bill
+$Input an action (add, print, end):
+> print
+No tasks have been input
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+>    
+The task is blank
+$Input an action (add, print, end):
+> print
+No tasks have been input
+$Input an action (add, print, end):
+> end
+Tasklist exiting!
 [1;31m
 Start test 3[0m
-.Input the tasks (enter a blank line to end):
-> Change colors at site
->         Dentist on 15/1
-'>          Present for friend birthday
-2>                Supermarket. Milk, eggs, butter.
-">                Fix the printer.
-'>                  Cinema: get tickets
->             
-1  Change colors at site
-2  Dentist on 15/1
- 3  Present for friend birthday
-%4  Supermarket. Milk, eggs, butter.
-5  Fix the printer.
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> See my dentist on 14/1/22
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> Supermarket
+> Chocolates
+> flour
+
+> oranges
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> Change site
+> Use Christmas theme
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> Buy book
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> Fix printer
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> Cinema: get tickets
+> Check movie reviews
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> Present for friend birthday
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> Check new software
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> Pay phone bill
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> Fill car tank
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> Buy flowers
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> Pay water bill
+> 
+$Input an action (add, print, end):
+> print
+1  See my dentist on 14/1/22
+
+2  Supermarket
+   Chocolates
+
+   flour
+   oranges
+
+3  Change site
+   Use Christmas theme
+
+4  Buy book
+
+5  Fix printer
+
 6  Cinema: get tickets
+   Check movie reviews
+
+ 7  Present for friend birthday
+
+8  Check new software
+
+9  Pay phone bill
+
+10 Fill car tank
+
+11 Buy flowers
+
+12 Pay water bill
+
+$Input an action (add, print, end):
+> end
+Tasklist exiting!
 [1;31m
 Start test 4[0m
-.Input the tasks (enter a blank line to end):
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+>      Fix printer  
 > 
-No tasks have been input
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+> 	Cinema: get tickets
+> 	Check movie reviews
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+$>       Present for friend birthday
+> 
+$Input an action (add, print, end):
+> add
+/Input a new task (enter a blank line to end):
+>   	  Check new software
+> 
+$Input an action (add, print, end):
+> print
+1  Fix printer
+
+2  Cinema: get tickets
+   Check movie reviews
+
+ 3  Present for friend birthday
+
+4  Check new software
+
+$Input an action (add, print, end):
+> end
+Tasklist exiting!
