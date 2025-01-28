@@ -1,5 +1,6 @@
 package tasklist
 
+import kotlinx.datetime.*
 import java.time.DateTimeException
 import java.time.format.DateTimeFormatter
 import java.time.LocalDate
@@ -13,20 +14,29 @@ enum class TaskPriority(val priority: String) {
     LOW("L")
 }
 
+enum class TaskDueTag(val tag: String) {
+    IN_TIME("I"),
+    TODAY("T"),
+    OVERDUE("O")
+}
+
 data class Task(var priority: TaskPriority = TaskPriority.LOW) {
-    val text: MutableList<String> = mutableListOf()
+    var text: MutableList<String> = mutableListOf()
     lateinit var date: String
     lateinit var time: String
+    lateinit var dueTag: String
 }
 
 fun main() {
     val tasks: MutableList<Task> = mutableListOf()
     while (true) {
-        println("Input an action (add, print, end):")
+        println("Input an action (add, print, edit, delete, end):")
         val input = readln().lowercase()
         when (input) {
             "add" -> addTask(tasks)
             "print" -> printTasklist(tasks)
+            "edit" -> editTask(tasks)
+            "delete" -> deleteTask(tasks)
             "end" -> {
                 println("Tasklist exiting!")
                 return
@@ -43,6 +53,7 @@ private fun addTask(tasks: MutableList<Task>) {
     task.priority = getPriority()
     task.date = getDate()
     task.time = getTime()
+    task.dueTag = getDueTag(task)
 
     println("Input a new task (enter a blank line to end):")
     while (true) {
@@ -76,9 +87,71 @@ private fun printTask(index: Int, task: Task) {
     val isSingleSpace = index >= 9
     val firstLineSpace = if (isSingleSpace) " " else "  "
     val otherLineSpace = "   "
-    println("${index + 1}$firstLineSpace${task.date} ${task.time} ${task.priority.priority}")
+    println("${index + 1}$firstLineSpace${task.date} ${task.time} ${task.priority.priority} ${task.dueTag}")
     task.text.forEach{ line ->
         println("$otherLineSpace$line")
+    }
+}
+
+private fun editTask(tasks: MutableList<Task>) {
+    printTasklist(tasks)
+    if (tasks.isEmpty()) return
+    while (true) {
+        println("Input the task number (1-${tasks.size}):")
+        val input = readln().toIntOrNull()
+        if (input != null && input in 1..tasks.size) {
+            editField(input - 1, tasks)
+            break
+        } else {
+            println("Invalid task number")
+        }
+    }
+}
+
+private fun editField(taskIndex: Int, tasks: MutableList<Task>) {
+    while (true) {
+        println("Input a field to edit (priority, date, time, task):")
+        val input = readln().lowercase()
+        when (input) {
+            "priority" -> {
+                tasks[taskIndex].priority = getPriority()
+                println("The task is changed")
+                break
+            }
+            "date" -> {
+                tasks[taskIndex].date = getDate()
+                println("The task is changed")
+                break
+            }
+            "time" -> {
+                tasks[taskIndex].time = getTime()
+                println("The task is changed")
+                break
+            }
+            "task" -> {
+                tasks[taskIndex].text = getText()
+                println("The task is changed")
+                break
+            }
+            else -> {
+                println("Invalid field")
+            }
+        }
+    }
+}
+private fun deleteTask(tasks: MutableList<Task>) {
+    printTasklist(tasks)
+    if (tasks.isEmpty()) return
+    while (true) {
+        println("Input the task number (1-${tasks.size}):")
+        val input = readln().toIntOrNull()
+        if (input != null && input in 1..tasks.size) {
+            tasks.removeAt(input - 1)
+            println("The task is deleted")
+            break
+        } else {
+            println("Invalid task number")
+        }
     }
 }
 
@@ -124,4 +197,29 @@ private fun getTime(): String {
             println("The input time is invalid")
         }
     }
+}
+
+private fun getDueTag(task: Task): String {
+    val taskDate = LocalDate.parse(task.date).toKotlinLocalDate()
+    val currentDate = Clock.System.now().toLocalDateTime(TimeZone.of("UTC+3")).date
+    val numberOfDays = currentDate.daysUntil(taskDate)
+    return when  {
+        numberOfDays > 0 -> TaskDueTag.IN_TIME.tag
+        numberOfDays == 0 -> TaskDueTag.TODAY.tag
+        else -> TaskDueTag.OVERDUE.tag
+    }
+}
+
+private fun getText(): MutableList<String> {
+    val text: MutableList<String> = mutableListOf()
+    println("Input a new task (enter a blank line to end):")
+    while (true) {
+        val taskInput = readln().trim()
+        if (taskInput.isNotBlank()) {
+            text.add(taskInput)
+        } else {
+            break
+        }
+    }
+    return text
 }

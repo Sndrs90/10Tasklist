@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.228s</div>
+<div class="counter">0.536s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">start</td>
-<td class="success">0.228s</td>
+<td class="success">0.536s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -89,27 +89,27 @@
 <span class="code">
 <pre>?[1;31m
 Start test 1?[0m
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; input
 The input action is invalid
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; task
 The input action is invalid
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; 
 The input action is invalid
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; 123
 The input action is invalid
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt;  
 The input action is invalid
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; end
 Tasklist exiting!
 ?[1;31m
 Start test 2?[0m
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; normal
@@ -130,12 +130,12 @@ Input the time (hh:mm):
 Input a new task (enter a blank line to end):
 &gt; Happy new year!
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; end
 Tasklist exiting!
 ?[1;31m
 Start test 3?[0m
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; N
@@ -161,12 +161,12 @@ Input the time (hh:mm):
 Input a new task (enter a blank line to end):
 &gt; Happy new year!
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; end
 Tasklist exiting!
 ?[1;31m
 Start test 4?[0m
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; N
@@ -192,12 +192,12 @@ Input the time (hh:mm):
 Input a new task (enter a blank line to end):
 &gt; Happy new year!
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; end
 Tasklist exiting!
 ?[1;31m
 Start test 5?[0m
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; N
@@ -208,40 +208,54 @@ Input the time (hh:mm):
 Input a new task (enter a blank line to end):
 &gt;      
 The task is blank
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; end
 Tasklist exiting!
 ?[1;31m
 Start test 6?[0m
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
+&gt; print
+No tasks have been input
+Input an action (add, print, edit, delete, end):
+&gt; edit
+No tasks have been input
+Input an action (add, print, edit, delete, end):
+&gt; delete
+No tasks have been input
+Input an action (add, print, edit, delete, end):
+&gt; end
+Tasklist exiting!
+?[1;31m
+Start test 7?[0m
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; H
 Input the date (yyyy-MM-dd):
-&gt; 2022-1-14
+&gt; 2025-01-28
 Input the time (hh:mm):
 &gt; 17:00
 Input a new task (enter a blank line to end):
-&gt; See my dentist on 14/1/22
+&gt; See my dentist
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; N
 Input the date (yyyy-MM-dd):
-&gt; 2022-12-20
+&gt; 2025-02-04
 Input the time (hh:mm):
 &gt; 17:00
 Input a new task (enter a blank line to end):
 &gt; Cinema: get tickets
 &gt; Check movie reviews
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; n
 Input the date (yyyy-MM-dd):
-&gt; 2021-12-13
+&gt; 2025-01-21
 Input the time (hh:mm):
 &gt; 19:00
 Input a new task (enter a blank line to end):
@@ -250,150 +264,415 @@ Input a new task (enter a blank line to end):
 &gt; flour
 &gt; oranges
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; l
 Input the date (yyyy-MM-dd):
-&gt; 2022-01-20
+&gt; 2025-02-04
 Input the time (hh:mm):
 &gt; 12:00
 Input a new task (enter a blank line to end):
 &gt; Buy book
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; N
 Input the date (yyyy-MM-dd):
-&gt; 2022-01-08
+&gt; 2025-01-28
 Input the time (hh:mm):
 &gt; 12:00
 Input a new task (enter a blank line to end):
 &gt; Check new software
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; C
 Input the date (yyyy-MM-dd):
-&gt; 2021-1-20
+&gt; 2025-01-21
 Input the time (hh:mm):
 &gt; 16:00
 Input a new task (enter a blank line to end):
 &gt; Fill car tank
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; c
 Input the date (yyyy-MM-dd):
-&gt; 2022-1-22
+&gt; 2025-02-04
 Input the time (hh:mm):
 &gt; 18:15
 Input a new task (enter a blank line to end):
 &gt; Pay phone bill
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; l
 Input the date (yyyy-MM-dd):
-&gt; 2022-1-22
+&gt; 2025-02-04
 Input the time (hh:mm):
 &gt; 18:15
 Input a new task (enter a blank line to end):
 &gt; Pay water bill
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; L
 Input the date (yyyy-MM-dd):
-&gt; 2022-1-22
+&gt; 2025-01-21
 Input the time (hh:mm):
 &gt; 08:05
 Input a new task (enter a blank line to end):
 &gt; Buy flowers
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; C
 Input the date (yyyy-MM-dd):
-&gt; 2021-12-19
+&gt; 2025-01-28
 Input the time (hh:mm):
 &gt; 12:00
 Input a new task (enter a blank line to end):
 &gt; Fix printer
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; h
 Input the date (yyyy-MM-dd):
-&gt; 2021-12-1
+&gt; 2025-01-21
 Input the time (hh:mm):
 &gt; 12:00
 Input a new task (enter a blank line to end):
 &gt; Change site
 &gt; Use Christmas theme
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; add
 Input the task priority (C, H, N, L):
 &gt; l
 Input the date (yyyy-MM-dd):
-&gt; 2022-2-22
+&gt; 2025-02-04
 Input the time (hh:mm):
 &gt; 12:00
 Input a new task (enter a blank line to end):
 &gt; Present for friend birthday
 &gt; 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
 &gt; print
-1  2022-01-14 17:00 H
-   See my dentist on 14/1/22
+1  2025-01-28 17:00 H T
+   See my dentist
 
-2  2022-12-20 17:00 N
+2  2025-02-04 17:00 N I
    Cinema: get tickets
    Check movie reviews
 
-3  2021-12-13 19:00 N
+3  2025-01-21 19:00 N O
    Supermarket
    Chocolates
    flour
    oranges
 
-4  2022-01-20 12:00 L
+4  2025-02-04 12:00 L I
    Buy book
 
-5  2022-01-08 12:00 N
+5  2025-01-28 12:00 N T
    Check new software
 
-6  2021-01-20 16:00 C
+6  2025-01-21 16:00 C O
    Fill car tank
 
-7  2022-01-22 18:15 C
+7  2025-02-04 18:15 C I
    Pay phone bill
 
-8  2022-01-22 18:15 L
+8  2025-02-04 18:15 L I
    Pay water bill
 
-9  2022-01-22 08:05 L
+9  2025-01-21 08:05 L O
    Buy flowers
 
-10 2021-12-19 12:00 C
+10 2025-01-28 12:00 C T
    Fix printer
 
-11 2021-12-01 12:00 H
+11 2025-01-21 12:00 H O
    Change site
    Use Christmas theme
 
-12 2022-02-22 12:00 L
+12 2025-02-04 12:00 L I
    Present for friend birthday
 
-Input an action (add, print, end):
+Input an action (add, print, edit, delete, end):
+&gt; end
+Tasklist exiting!
+?[1;31m
+Start test 8?[0m
+Input an action (add, print, edit, delete, end):
+&gt; add
+Input the task priority (C, H, N, L):
+&gt; H
+Input the date (yyyy-MM-dd):
+&gt; 2025-01-28
+Input the time (hh:mm):
+&gt; 17:00
+Input a new task (enter a blank line to end):
+&gt; See my dentist
+&gt; 
+Input an action (add, print, edit, delete, end):
+&gt; add
+Input the task priority (C, H, N, L):
+&gt; N
+Input the date (yyyy-MM-dd):
+&gt; 2025-02-04
+Input the time (hh:mm):
+&gt; 17:00
+Input a new task (enter a blank line to end):
+&gt; Cinema: get tickets
+&gt; Check movie reviews
+&gt; 
+Input an action (add, print, edit, delete, end):
+&gt; add
+Input the task priority (C, H, N, L):
+&gt; n
+Input the date (yyyy-MM-dd):
+&gt; 2025-01-21
+Input the time (hh:mm):
+&gt; 19:00
+Input a new task (enter a blank line to end):
+&gt; Supermarket
+&gt; Chocolates
+&gt; flour
+&gt; oranges
+&gt; 
+Input an action (add, print, edit, delete, end):
+&gt; add
+Input the task priority (C, H, N, L):
+&gt; l
+Input the date (yyyy-MM-dd):
+&gt; 2025-02-04
+Input the time (hh:mm):
+&gt; 12:00
+Input a new task (enter a blank line to end):
+&gt; Buy book
+&gt; 
+Input an action (add, print, edit, delete, end):
+&gt; print
+1  2025-01-28 17:00 H T
+   See my dentist
+
+2  2025-02-04 17:00 N I
+   Cinema: get tickets
+   Check movie reviews
+
+3  2025-01-21 19:00 N O
+   Supermarket
+   Chocolates
+   flour
+   oranges
+
+4  2025-02-04 12:00 L I
+   Buy book
+
+Input an action (add, print, edit, delete, end):
+&gt; delete
+1  2025-01-28 17:00 H T
+   See my dentist
+
+2  2025-02-04 17:00 N I
+   Cinema: get tickets
+   Check movie reviews
+
+3  2025-01-21 19:00 N O
+   Supermarket
+   Chocolates
+   flour
+   oranges
+
+4  2025-02-04 12:00 L I
+   Buy book
+
+Input the task number (1-4):
+&gt; 1
+The task is deleted
+Input an action (add, print, edit, delete, end):
+&gt; delete
+1  2025-02-04 17:00 N I
+   Cinema: get tickets
+   Check movie reviews
+
+2  2025-01-21 19:00 N O
+   Supermarket
+   Chocolates
+   flour
+   oranges
+
+3  2025-02-04 12:00 L I
+   Buy book
+
+Input the task number (1-3):
+&gt; 2
+The task is deleted
+Input an action (add, print, edit, delete, end):
+&gt; delete
+1  2025-02-04 17:00 N I
+   Cinema: get tickets
+   Check movie reviews
+
+2  2025-02-04 12:00 L I
+   Buy book
+
+Input the task number (1-2):
+&gt; 2
+The task is deleted
+Input an action (add, print, edit, delete, end):
+&gt; delete
+1  2025-02-04 17:00 N I
+   Cinema: get tickets
+   Check movie reviews
+
+Input the task number (1-1):
+&gt; 1
+The task is deleted
+Input an action (add, print, edit, delete, end):
+&gt; delete
+No tasks have been input
+Input an action (add, print, edit, delete, end):
+&gt; end
+Tasklist exiting!
+?[1;31m
+Start test 9?[0m
+Input an action (add, print, edit, delete, end):
+&gt; add
+Input the task priority (C, H, N, L):
+&gt; N
+Input the date (yyyy-MM-dd):
+&gt; 2000-1-1
+Input the time (hh:mm):
+&gt; 0:0
+Input a new task (enter a blank line to end):
+&gt; A new a task
+&gt; 
+Input an action (add, print, edit, delete, end):
+&gt; delete
+1  2000-01-01 00:00 N O
+   A new a task
+
+Input the task number (1-1):
+&gt; 2
+Invalid task number
+Input the task number (1-1):
+&gt; del
+Invalid task number
+Input the task number (1-1):
+&gt; -1
+Invalid task number
+Input the task number (1-1):
+&gt; 0
+Invalid task number
+Input the task number (1-1):
+&gt; 1
+The task is deleted
+Input an action (add, print, edit, delete, end):
+&gt; end
+Tasklist exiting!
+?[1;31m
+Start test 10?[0m
+Input an action (add, print, edit, delete, end):
+&gt; add
+Input the task priority (C, H, N, L):
+&gt; N
+Input the date (yyyy-MM-dd):
+&gt; 2000-1-1
+Input the time (hh:mm):
+&gt; 0:0
+Input a new task (enter a blank line to end):
+&gt; My task
+&gt; 
+Input an action (add, print, edit, delete, end):
+&gt; edit
+1  2000-01-01 00:00 N O
+   My task
+
+Input the task number (1-1):
+&gt; 2
+Invalid task number
+Input the task number (1-1):
+&gt; del
+Invalid task number
+Input the task number (1-1):
+&gt; -1
+Invalid task number
+Input the task number (1-1):
+&gt; 0
+Invalid task number
+Input the task number (1-1):
+&gt; 1
+Input a field to edit (priority, date, time, task):
+&gt; priority
+Input the task priority (C, H, N, L):
+&gt; H
+The task is changed
+Input an action (add, print, edit, delete, end):
+&gt; edit
+1  2000-01-01 00:00 H O
+   My task
+
+Input the task number (1-1):
+&gt; 1
+Input a field to edit (priority, date, time, task):
+&gt; date
+Input the date (yyyy-MM-dd):
+&gt; 2001-2-2
+The task is changed
+Input an action (add, print, edit, delete, end):
+&gt; edit
+1  2001-02-02 00:00 H O
+   My task
+
+Input the task number (1-1):
+&gt; 1
+Input a field to edit (priority, date, time, task):
+&gt; time
+Input the time (hh:mm):
+&gt; 12:34
+The task is changed
+Input an action (add, print, edit, delete, end):
+&gt; edit
+1  2001-02-02 12:34 H O
+   My task
+
+Input the task number (1-1):
+&gt; 1
+Input a field to edit (priority, date, time, task):
+&gt; task
+Input a new task (enter a blank line to end):
+&gt; My new task
+&gt; 
+The task is changed
+Input an action (add, print, edit, delete, end):
+&gt; edit
+1  2001-02-02 12:34 H O
+   My new task
+
+Input the task number (1-1):
+&gt; 1
+Input a field to edit (priority, date, time, task):
+&gt; my field
+Invalid field
+Input a field to edit (priority, date, time, task):
+&gt; tags
+Invalid field
+Input a field to edit (priority, date, time, task):
+&gt; time
+Input the time (hh:mm):
+&gt; 3:21
+The task is changed
+Input an action (add, print, edit, delete, end):
 &gt; end
 Tasklist exiting!
 </pre>
@@ -407,7 +686,7 @@ Tasklist exiting!
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.5</a> at 23 янв. 2025 г., 14:50:27</p>
+<a href="http://www.gradle.org">Gradle 8.5</a> at 28 янв. 2025 г., 10:14:58</p>
 </div>
 </div>
 </body>
