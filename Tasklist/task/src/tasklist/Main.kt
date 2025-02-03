@@ -7,28 +7,35 @@ import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeParseException
 
-enum class TaskPriority(val priority: String) {
-    CRITICAL("C"),
-    HIGH("H"),
-    NORMAL("N"),
-    LOW("L")
+enum class TaskPriority(val priority: String, val colorCode: String) {
+    CRITICAL("C", "\u001B[101m \u001B[0m"),
+    HIGH("H", "\u001B[103m \u001B[0m"),
+    NORMAL("N", "\u001B[102m \u001B[0m"),
+    LOW("L", "\u001B[104m \u001B[0m")
 }
 
-enum class TaskDueTag(val tag: String) {
-    IN_TIME("I"),
-    TODAY("T"),
-    OVERDUE("O")
+enum class TaskDueTag(val tag: String, val colorCode: String) {
+    IN_TIME("I", "\u001B[102m \u001B[0m"),
+    TODAY("T", "\u001B[103m \u001B[0m"),
+    OVERDUE("O", "\u001B[101m \u001B[0m")
 }
 
-data class Task(var priority: TaskPriority = TaskPriority.LOW) {
+class Task(var priority: TaskPriority = TaskPriority.LOW) {
     var text: MutableList<String> = mutableListOf()
     lateinit var date: String
     lateinit var time: String
     lateinit var dueTag: String
+
+    operator fun component1(): String = date
+    operator fun component2(): String = time
+    operator fun component3(): String = priority.priority
+    operator fun component4(): String = dueTag
+    operator fun component5(): MutableList<String> = text
 }
 
 fun main() {
     val tasks: MutableList<Task> = mutableListOf()
+
     while (true) {
         println("Input an action (add, print, edit, delete, end):")
         val input = readln().lowercase()
@@ -45,7 +52,6 @@ fun main() {
         }
     }
 }
-
 
 private fun addTask(tasks: MutableList<Task>) {
     val task = Task()
@@ -73,24 +79,63 @@ private fun addTask(tasks: MutableList<Task>) {
 
 private fun printTasklist(tasks: MutableList<Task>) {
     if (tasks.isNotEmpty()) {
+        println("+----+------------+-------+---+---+--------------------------------------------+")
+        println("| N  |    Date    | Time  | P | D |                    Task                    |")
+        println("+----+------------+-------+---+---+--------------------------------------------+")
+
         tasks.forEachIndexed { index, task ->
-            printTask(index, task)
-            println()
+            val (date, time, priority, dueTag, text) = task
+            val isSingleSpace = index >= 9
+            val firstLineSpace = if (isSingleSpace) " " else "  "
+
+            val priorityColor = findPriorityColor(priority)
+            val dueTagColor = findTagColor(dueTag)
+
+            // Create a new list to hold formatted text
+            val formattedTextList = mutableListOf<String>()
+            for (i in text.indices) {
+                formattedTextList.add(i, text[i])
+                if (text[i].length > 44) {
+                    val chunks = text[i].chunked(44) {
+                        if (it.length < 44) it.padEnd(44, ' ') else it
+                    }
+                    formattedTextList[i] = chunks.joinToString(separator = "|\n|    |            |       |   |   |") + "|"
+                } else {
+                    formattedTextList[i] = text[i].padEnd(44, ' ') + "|"
+                }
+            }
+
+            // Print the first line from the formatted text
+            println("| ${index + 1}$firstLineSpace| $date | $time | $priorityColor | $dueTagColor |${formattedTextList[0]}")
+            // Print the remaining lines if any
+            if (formattedTextList.size > 1) {
+                for (i in 1 until formattedTextList.size) {
+                    println("|    |            |       |   |   |${formattedTextList[i]}")
+                }
+            }
+            println("+----+------------+-------+---+---+--------------------------------------------+")
         }
     } else {
         println("No tasks have been input")
     }
 }
 
-private fun printTask(index: Int, task: Task) {
-    // Determine if we should use single space or double space for the first line
-    val isSingleSpace = index >= 9
-    val firstLineSpace = if (isSingleSpace) " " else "  "
-    val otherLineSpace = "   "
-    println("${index + 1}$firstLineSpace${task.date} ${task.time} ${task.priority.priority} ${task.dueTag}")
-    task.text.forEach{ line ->
-        println("$otherLineSpace$line")
+private fun findPriorityColor(priority: String): String {
+    for (p in TaskPriority.entries) {
+        if (priority == p.priority) {
+            return p.colorCode
+        }
     }
+    return ""
+}
+
+private fun findTagColor(dueTag: String): String {
+    for (tag in TaskDueTag.entries) {
+        if (dueTag == tag.tag) {
+            return tag.colorCode
+        }
+    }
+    return ""
 }
 
 private fun editTask(tasks: MutableList<Task>) {
