@@ -1,11 +1,14 @@
 package tasklist
 
 import kotlinx.datetime.*
+import java.io.File
 import java.time.DateTimeException
 import java.time.format.DateTimeFormatter
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeParseException
+import com.squareup.moshi.*
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 enum class TaskPriority(val priority: String, val colorCode: String) {
     CRITICAL("C", "\u001B[101m \u001B[0m"),
@@ -34,7 +37,19 @@ class Task(var priority: TaskPriority = TaskPriority.LOW) {
 }
 
 fun main() {
+    val jsonFile = File("tasklist.json")
+    val moshi = Moshi.Builder()
+        .add(KotlinJsonAdapterFactory())
+        .build()
+    val type = Types.newParameterizedType(MutableList::class.java, Task::class.java)
+    val taskListAdapter = moshi.adapter<MutableList<Task>>(type)
     val tasks: MutableList<Task> = mutableListOf()
+    if (jsonFile.exists()) {
+        val savedTasks = taskListAdapter.fromJson(jsonFile.readText())
+        if (savedTasks != null) {
+            tasks.addAll(savedTasks)
+        }
+    }
 
     while (true) {
         println("Input an action (add, print, edit, delete, end):")
@@ -45,6 +60,8 @@ fun main() {
             "edit" -> editTask(tasks)
             "delete" -> deleteTask(tasks)
             "end" -> {
+                val jsonString = taskListAdapter.toJson(tasks)
+                jsonFile.writeText(jsonString)
                 println("Tasklist exiting!")
                 return
             }

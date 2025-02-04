@@ -6,6 +6,13 @@ files:
   - name: test/TasklistTest.kt
     visible: false
     learner_created: false
+  - name: tasklist.json
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/18599#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">Hyperskill</a>
+    to continue learning.
+  time: "Tue, 04 Feb 2025 08:33:47 UTC"
 record: -1
